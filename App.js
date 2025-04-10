@@ -33,16 +33,16 @@ function LoginScreen({ navigation }) {
         inputStyle={{ color: 'white' }}
         secureTextEntry
       />
-      <Button title='Login' onPress={() => navigation.navigate('Lista de Contatos')}>
+      <Button title='Login' onPress={() => navigation.navigate('Contatos')}>
       </Button>
       <Text> </Text>
-      <Button title='Cadastre-se' onPress={() => navigation.navigate('Cadastro de Usuário')}color= '#ff2424'>
+      <Button title='Cadastre-se' onPress={() => navigation.navigate('Usuário')}>
       </Button>
     </View>
   );
 }
 
-function listaContatos({ navigation }) {
+function Contatos({ navigation }) {
   return (
     <View style={{ flex: 1, paddingHorizontal: 16, backgroundColor: '#e0e0e0' }}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -51,7 +51,7 @@ function listaContatos({ navigation }) {
           title='MA'
           size="medium"
           containerStyle={{ backgroundColor: '#007AFF' }}
-          onPress={() => navigation.navigate('Contatos')}
+          onPress={() => navigation.navigate('Contato')}
         />
         <View style={{ marginLeft: 10 }}>
           <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Marcos Andrade</Text>
@@ -66,7 +66,7 @@ function listaContatos({ navigation }) {
           title='PT'
           size="medium"
           containerStyle={{ backgroundColor: '#007AFF' }}
-          onPress={() => navigation.navigate('Contatos')}
+          onPress={() => navigation.navigate('Contato')}
         />
         <View style={{ marginLeft: 10 }}>
           <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Patrícia Tavares</Text>
@@ -81,7 +81,7 @@ function listaContatos({ navigation }) {
           title='PT'
           size="medium"
           containerStyle={{ backgroundColor: '#007AFF' }}
-          onPress={() => navigation.navigate('Contatos')}
+          onPress={() => navigation.navigate('Contato')}
         />
         <View style={{ marginLeft: 10 }}>
           <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Rodrigo Antunes</Text>
@@ -92,12 +92,12 @@ function listaContatos({ navigation }) {
   );
 }
 
-function Cadastro({ navigation }) {
+function Usuário({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#e0e0e0' }}>
       <Text> </Text>
       <Input
-        placeholder="NOME"
+        placeholder="Nome"
         placeholderTextColor="black"
         inputStyle={{ color: 'white' }}
       />
@@ -109,13 +109,13 @@ function Cadastro({ navigation }) {
       />
       
       <Input
-        placeholder="EMAIL"
+        placeholder="Email"
         placeholderTextColor="black"
         inputStyle={{ color: 'white' }}
       />
 
       <Input
-        placeholder="SENHA"
+        placeholder="Senha"
         placeholderTextColor="black"
         inputStyle={{ color: 'white' }}
         secureTextEntry
@@ -126,35 +126,35 @@ function Cadastro({ navigation }) {
   );
 }
 
-function CadastroContatos({ navigation }) {
+function Cadastro({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#e0e0e0' }}>
       <Text> </Text>
       <Input
-        placeholder="NOME"
+        placeholder="Nome"
         placeholderTextColor="black"
         inputStyle={{ color: 'white' }}
       />
       
       <Input
-        placeholder="EMAIL"
+        placeholder="Email"
         placeholderTextColor="black"
         inputStyle={{ color: 'white' }}
       />
 
       <Input
-        placeholder="TELEFONE"
+        placeholder="Telefone"
         placeholderTextColor="black"
         inputStyle={{ color: 'white' }}
         secureTextEntry
       />
-      <Button title='Salvar'onPress={() => navigation.navigate('Lista de Contatos')}>
+      <Button title='Salvar'onPress={() => navigation.navigate('Contatos')}>
       </Button>
     </View>
   );
 }
 
-function Contatos({ navigation }) {
+function Contato({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#e0e0e0' }}>
       <Text> </Text>
@@ -170,10 +170,9 @@ function Contatos({ navigation }) {
         inputStyle={{ color: 'white' }}
         secureTextEntry
       />
-      <Button title='Alterar' onPress={() => navigation.navigate('Login')}>
+      <Button title='Alterar'>
       </Button>
-      <Text> </Text>
-      <Button title='Excluir' onPress={() => navigation.navigate('Login')}color= '#ff2424'>
+      <Button title='Excluir'>
       </Button>
     </View>
   );
@@ -186,7 +185,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="Lista de Contatos" component={listaContatos}
+        <Stack.Screen name="Contatos" component={Contatos}
                       options={({ navigation }) => ({
                         headerTitleAlign: 'center',
                         headerRight: () => (
@@ -195,15 +194,15 @@ function App() {
                             size={24}
                             color="black"
                             style={{ marginRight: 10 }}
-                            onPress={() => navigation.navigate('Cadastro de Contatos')}
+                            onPress={() => navigation.navigate('Cadastro')}
                           />
                         ),
                       })}
                     />
 
-        <Stack.Screen name="Cadastro de Usuário" component={Cadastro}/>
-        <Stack.Screen name="Cadastro de Contatos" component={CadastroContatos}/>
-        <Stack.Screen name="Contatos" component={Contatos}/>
+        <Stack.Screen name="Usuário" component={Usuário}/>
+        <Stack.Screen name="Cadastro" component={Cadastro}/>
+        <Stack.Screen name="Contato" component={Contato}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
